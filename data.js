@@ -1,53 +1,53 @@
 export const foodMenu = [
     {
         name: "Pizza",
-        ingredients: ["pepperoni", "mushrom", "mozarella"],
-        id: 0,
+        ingredients: ["pepperoni", "mushrom", "mozarella", "tomatoes", "oregano"],
         price: 14,
-        emoji: "🍕"
+        emoji: "🍕",
+        id: 0,
     },
     {
         name: "Hamburger",
-        ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        ingredients: ["beef", "cheese", "lettuce", "onion", "tomatoes"],
+        price: 9,
         emoji: "🍔",
         id: 1
     },
         {
-        name: "Burito",
-        ingredients: ["grain, hops, yeast, water"],
-        price: 12,
+        name: "Burrito",
+        ingredients: ["beef", "beans" , "lettuce" , "tomatoes", "cheese", "guacamole"],
+        price: 6,
         emoji: "🌯",
-        id: 2
+        id: 3
     },
     {
         name: "Taco",
-        ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        ingredients: ["beef", "Pico de Gallo", "beans", "corn", "cheese"],
+        price: 4,
         emoji: "🌮",
-        id: 1
+        id: 4
     },
     {
         name: "Hot Dog",
-        ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        ingredients: ["hot dog", "onions", "mustard", "ketchup", "Relish"],
+        price: 7,
         emoji: "🌭",
-        id: 1
+        id: 5
     },
 ]
 
 export const drinkMenu = [
     {
         name: "Bubble Tea",
-        ingredients: ["pepperoni", "mushrom", "mozarella"],
-        id: 0,
-        price: 14,
-        emoji: "🧋"
+        ingredients: ["black tea", "milk", "tapioca pearls", "ice"],
+        price: 10,
+        emoji: "🧋",
+        id: 1,
     },
     {
         name: "Coffee",
-        ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        ingredients: ["coffee", "surar", "milk"],
+        price: 5,
         emoji: "☕",
         id: 1
     },
@@ -56,20 +56,20 @@ export const drinkMenu = [
         ingredients: ["grain, hops, yeast, water"],
         price: 12,
         emoji: "🍺",
-        id: 2
+        id: 3
     },
     {
         name: "Coctail",
-        ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        ingredients: ["vodka", "whiskey", "syrup", "soda water", "ice", "mint"],
+        price: 18,
         emoji: "🍹",
-        id: 1
+        id: 4
     },
     {
         name: "Soft Drink",
-        ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        ingredients: ["flavor", "sugar", "CO2"],
+        price: 8,
         emoji: "🥤",
-        id: 1
+        id: 5
     },
 ]
