@@ -3,7 +3,7 @@ import { drinkMenu } from "./data.js"
 
 let isFood = true
 let menu
-let cartHtml = ""
+let cart = []
 
 document.addEventListener("click", function(e){
 
@@ -13,7 +13,6 @@ document.addEventListener("click", function(e){
         }else{
             
         }
-        addToCart()
     }
 })
 
@@ -67,26 +66,43 @@ function addToCart(productType, productId){
     })[0]
     console.log(targetProduct)
     
-    cartHtml += 
-    `
-    <div class="order">
-        <div class="product">
-            <p>Burito <span>(remove)</span></p>
-            
-        </div>
-        <div class="price">
-            <p>$12</p>
-            
-        </div>
-    </div>
-    `
+    cart.push(targetProduct)
 
+    renderCart()
 }
 
 function renderMain(){
     document.getElementById("main").innerHTML = getProductHtml()
 }
 
+function renderCart(){
+    let totalPrice = 0
+    let cartHtml = ""
+    cart.forEach(function(product){
+        totalPrice += product.price
+        cartHtml += 
+        `
+        <div class="order">
+            <div class="product">
+                <p>${product.name} <span>(remove)</span></p>
+                
+            </div>
+            <div class="price">
+                <p>$${product.price}</p>
+                
+            </div>
+        </div>
+        `
+    })
 
+    document.getElementById("cart").innerHTML = cartHtml
+
+    if(cart.length > 0){
+        document.getElementById("orderHeading").textContent = "Your order"
+        document.getElementById("total-price").textContent = "$"+totalPrice
+    }
+
+}
 
 renderMain()
+
