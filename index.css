@@ -1,3 +1,147 @@
 body {
     margin: 0;
+    font-family: 'Smythe', cursive;
 } 
+
+.container{
+    border: 3px solid red;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 480px;
+}
+
+header {
+    box-sizing: border-box;
+    color: antiquewhite;
+
+    padding: 0px 40px;
+
+    background-image: url(https://images.unsplash.com/photo-1616645500344-209060c84970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+    background-size: cover;
+    background-position: center;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+section {
+    display: flex;
+    align-items: center;
+
+    flex-direction: row;
+    margin: 0px 50px;
+    padding: 10px 0;
+
+    border-bottom: 1px solid #999;
+
+}
+
+h1 {
+    margin: 20px 0 0 0;
+    padding: 0;
+    font-size: 32px;
+}
+
+h3 {
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+p {
+    margin: 4px 10px;
+}
+
+section h1 {
+    margin:  0;
+    padding: 0;
+
+}
+
+section h3 {
+    margin: 0;
+    padding: 0;
+
+}
+
+section p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 12px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.emoji {
+    margin: 0;
+    padding: 0 20px 0 0;
+    font-size: 70px;
+    text-align: center;
+}
+
+i{
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.fa-solid, .fa-regular {
+    color: #999;
+}
+
+.add{
+    margin-left: auto;
+    padding-right: 10px;
+    font-size: 25px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 50px;
+}
+
+.order,
+.total{
+    margin: auto;
+    display: flex;
+
+
+    width: 100%;
+    
+}
+
+
+.product,
+.price {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+
+    font-size: 18px;
+}
+.price{
+    text-align: end;
+}
+
+.total {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #999;
+}
+
+button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #16DB99;
+    color: white;
+}
