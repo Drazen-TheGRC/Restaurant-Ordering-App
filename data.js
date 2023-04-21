@@ -4,14 +4,14 @@ export const foodMenu = [
         ingredients: ["pepperoni", "mushrom", "mozarella", "tomatoes", "oregano"],
         price: 14,
         emoji: "🍕",
-        id: 0,
+        id: 1
     },
     {
         name: "Hamburger",
         ingredients: ["beef", "cheese", "lettuce", "onion", "tomatoes"],
         price: 9,
         emoji: "🍔",
-        id: 1
+        id: 2
     },
         {
         name: "Burrito",
@@ -29,7 +29,7 @@ export const foodMenu = [
     },
     {
         name: "Hot Dog",
-        ingredients: ["hot dog", "onions", "mustard", "ketchup", "Relish"],
+        ingredients: ["hot dog", "onions", "mustard", "ketchup", "relish"],
         price: 7,
         emoji: "🌭",
         id: 5
@@ -42,14 +42,14 @@ export const drinkMenu = [
         ingredients: ["black tea", "milk", "tapioca pearls", "ice"],
         price: 10,
         emoji: "🧋",
-        id: 1,
+        id: 1
     },
     {
         name: "Coffee",
         ingredients: ["coffee", "surar", "milk"],
         price: 5,
         emoji: "☕",
-        id: 1
+        id: 2
     },
         {
         name: "Beer",
