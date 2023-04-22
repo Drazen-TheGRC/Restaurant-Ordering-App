@@ -4,8 +4,8 @@ body {
 } 
 
 .container{
-    border: 3px solid #999;
-    border-radius: 10px;
+    border: 4px solid #16DB99;
+
     margin: 10px auto;
     width: 480px;
 }
@@ -114,7 +114,7 @@ footer {
     align-items: center;
     justify-content: end;
 
-    min-height: 180px;
+    min-height: 200px;
     padding: 20px 50px 20px 50px;
 }
 
@@ -149,6 +149,10 @@ footer {
     width: 50%;
 
     font-size: 18px;
+}
+
+.remove {
+    color: #16DB99;
 }
 
 .price-total{
@@ -192,9 +196,29 @@ button {
     margin: 10px 0;
     padding: 10px;
     width: 100%;
-    border: none;
-    border-radius: 5px;
-    background-color: #16DB99;
+
     color: white;
+    background-color: #16DB99;
+    border: 4px  solid white;
+
     cursor: pointer;
+    font-size: 20px;
+}
+
+.menuBtns {
+    display: flex;
+}
+
+.foodBtn,
+.drinkBtn {
+    margin: 0;
+    width: 50%;
+}
+
+.foodBtn {
+    border-right: 2px solid white;
+}
+
+.drinkBtn {
+    border-left: 2px solid white;
 }

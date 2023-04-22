@@ -10,11 +10,7 @@ let cart = []
 document.addEventListener("click", function(e){
 
     if(e.target.id){
-        if(isFood){
-            addToCart(e.target.dataset.product_type, e.target.id)
-        }else{
-            
-        }
+        addToCart(e.target.dataset.product_type, e.target.id)
     }
     else if(e.target.dataset.add_product){
         addQty(e.target.dataset.add_product)
@@ -24,6 +20,12 @@ document.addEventListener("click", function(e){
     }
     else if(e.target.dataset.remove_product){
        removeProduct(e.target.dataset.remove_product)
+    }
+    else if(e.target.dataset.food_menu){
+        switchMenu(e.target.dataset.food_menu)
+    }
+    else if(e.target.dataset.drink_menu){
+        switchMenu(e.target.dataset.drink_menu)
     }
 })
 
@@ -41,6 +43,15 @@ function getProductHtml(){
         menu = drinkMenu
         productType = "drink"
     }
+
+    productHtml =
+    `
+    <div class="menuBtns">
+        <button class="foodBtn" data-food_menu="food" >Food Menu</button>
+        <button class="drinkBtn" data-drink_menu="drink" >Drink Menu</button>
+    </div>
+    
+    `
 
     menu.forEach(function(product){
 
@@ -73,13 +84,33 @@ function getProductHtml(){
 }
 
 
+function switchMenu(menu){
+    if(menu != "food"){
+        isFood = false
+        renderMain()
+    }else{
+        isFood = true
+        renderMain()
+    }
+}
 
 function addToCart(productType, productId){
     
     // Getting clicked product
-    let targetProduct = foodMenu.filter(function(product){
-        return product.id === parseInt(productId)
-    })[0]
+    
+    let targetProduct
+    if(isFood){
+        targetProduct = foodMenu.filter(function(product){
+            return product.id === parseInt(productId)
+        })[0]
+    }else{
+        targetProduct = drinkMenu.filter(function(product){
+            return product.id === parseInt(productId)
+        })[0]
+    }
+
+
+
 
     // Checking if clicked product already exists in the cart
     let existsInChart = cart.filter(function(product){
@@ -161,7 +192,7 @@ function renderCart(){
         `
         <div class="order">
             <div class="product">
-                <p>${product.name} <span class="remove" data-remove_product="${product.name}" >(remove)</span></p>
+                <p>${product.name} ${product.emoji} <span class="remove" data-remove_product="${product.name}" >(remove)</span></p>
             </div>
 
             <div class="price">
