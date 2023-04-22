@@ -6,7 +6,6 @@ let menu
 let cart = []
 
 
-
 document.addEventListener("click", function(e){
 
     if(e.target.id){
@@ -27,6 +26,7 @@ document.addEventListener("click", function(e){
     else if(e.target.dataset.drink_menu){
         switchMenu(e.target.dataset.drink_menu)
     }
+    
 })
 
 
@@ -61,8 +61,8 @@ function getProductHtml(){
             ingredientList += ingredient + ", "
         })
         ingredientList = ingredientList.substring(0, ingredientList.length-2)
-        console.log("Product: " + product.name + ". Ingredients: " + ingredientList)
-        console.log(product.id)
+        // console.log("Product: " + product.name + ". Ingredients: " + ingredientList)
+        // console.log(product.id)
 
         productHtml +=
         `
@@ -93,6 +93,7 @@ function switchMenu(menu){
         renderMain()
     }
 }
+
 
 function addToCart(productType, productId){
     
@@ -137,7 +138,6 @@ function addToCart(productType, productId){
 }
 
 
-
 function addQty(productName){
     let targetProduct = cart.filter(function(product){
         return product.name === productName
@@ -146,7 +146,6 @@ function addQty(productName){
 
     renderCart()
 }
-
 
 
 function subQty(productName){
@@ -164,7 +163,6 @@ function subQty(productName){
 }
 
 
-
 function removeProduct(productName){
     let targetProduct = cart.filter(function(product){
         return product.name === productName
@@ -179,7 +177,6 @@ function removeProduct(productName){
 function renderMain(){
     document.getElementById("main").innerHTML = getProductHtml()
 }
-
 
 
 function renderCart(){
@@ -238,6 +235,17 @@ function renderCart(){
 }
 
 
+
+function completeOrder(){
+    console.log("Message from completeOrder()")
+    document.getElementById("complete-order-div").classList.toggle("hidden")
+}
+
+
 // First render
 renderMain()
+
+
+
+
 
