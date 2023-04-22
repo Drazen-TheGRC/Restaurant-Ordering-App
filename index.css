@@ -39,13 +39,13 @@ section {
 }
 
 h1 {
-    margin: 30px 0 0 0;
+    margin: 20px 0 0 0;
     padding: 0;
     font-size: 32px;
 }
 
 h3 {
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
     padding: 0;
     font-size: 18px;
 }
@@ -63,6 +63,11 @@ span:hover{
     font-size: 14px;
     color:  #16DB99;
     cursor: pointer;
+}
+
+.qty{
+
+    font-size: 16px;
 }
 
 section h1 {
@@ -108,12 +113,18 @@ i{
 }
 
 footer {
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    min-height: 280px;
-    padding: 40px 50px 20px 50px;
+    justify-content: end;
+    min-height: 230px;
+    padding: 20px 50px 20px 50px;
+}
+
+.order-heading{
+    margin-bottom: auto;
+    padding-bottom: 30px;
 }
 
 .total-container {
@@ -137,21 +148,45 @@ footer {
 
 .product,
 .price {
+    display: flex;
     margin: 0;
     padding: 0;
-    width: 50%;
-
     font-size: 18px;
+    width: 50%;
+    justify-content: space-between;
 }
-.price{
-    text-align: end;
+.price-total{
+    justify-content: end;
+}
+
+.price-math-add,
+.price-math-total {
+    display: flex;
+    justify-content: end;
+    align-items: center;    
+}
+
+.price-math-add {
+    width: 60%;
+}
+
+
+.div-qty{
+    display: flex;
+    width: 33.3%;
+    justify-content: center;
 }
 
 .total {
-    margin-top: 10px;
-    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    
     border-top: 1px solid #999;
     
+}
+.total-price{
+    display: flex;
+    justify-content: space-between;
 }
 
 button {

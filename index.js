@@ -5,6 +5,8 @@ let isFood = true
 let menu
 let cart = []
 
+
+
 document.addEventListener("click", function(e){
 
     if(e.target.id){
@@ -15,6 +17,8 @@ document.addEventListener("click", function(e){
         }
     }
 })
+
+
 
 function getProductHtml(){
 
@@ -59,17 +63,49 @@ function getProductHtml(){
     return productHtml
 }
 
+
+
 function addToCart(productType, productId){
     
-    const targetProduct = foodMenu.filter(function(product){
+    // Getting clicked product
+    let targetProduct = foodMenu.filter(function(product){
         return product.id === parseInt(productId)
     })[0]
-    console.log(targetProduct)
-    
-    cart.push(targetProduct)
 
+    // Checking if clicked product already exists in the cart
+    let existsInChart = cart.filter(function(product){
+        return product.name === targetProduct.name
+    })[0]
+
+    if(existsInChart){
+        existsInChart.quantityInCart++
+    }else{
+        
+        cart.push(
+            {
+                name: targetProduct.name,
+                ingredients: targetProduct.ingredients,
+                price: targetProduct.price,
+                emoji: targetProduct.emoji,
+                id: targetProduct.id,
+                quantityInCart: 1
+            }
+        )
+    }
+
+
+
+    
     renderCart()
 }
+
+
+
+
+
+
+
+
 
 function renderMain(){
     document.getElementById("main").innerHTML = getProductHtml()
@@ -79,16 +115,38 @@ function renderCart(){
     let totalPrice = 0
     let cartHtml = ""
     cart.forEach(function(product){
-        totalPrice += product.price
+        totalPrice += product.price*product.quantityInCart
         cartHtml += 
         `
         <div class="order">
             <div class="product">
-                <p>${product.name} <span>(remove)</span></p>
-                
+                <p>${product.name} <span class="remove">(remove)</span></p>
             </div>
+
             <div class="price">
-                <p>$${product.price}</p>
+                <div class="price-math-add">
+                    <div class="div-qty">
+                        <p>
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </p>
+                    </div>
+                    <div class="div-qty">
+                        <p>
+                                <span class="qty">${product.quantityInCart}</span>
+                        </p>
+                    </div>
+                    <div class="div-qty">
+                        <p>
+                            <i class="fa-solid fa-circle-minus"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="price-math-total">
+                    <p>$${parseFloat(product.price*product.quantityInCart).toFixed(2)}</p>
+                </div>
+
+                
                 
             </div>
         </div>
@@ -98,11 +156,15 @@ function renderCart(){
     document.getElementById("cart").innerHTML = cartHtml
 
     if(cart.length > 0){
+        document.getElementsByTagName("footer")[0].style.visibility = "visible"
         document.getElementById("orderHeading").textContent = "Your order"
-        document.getElementById("total-price").textContent = "$"+totalPrice
+        document.getElementById("total-price").textContent = "$" + parseFloat(totalPrice).toFixed(2)
+    }else{
+        document.getElementsByTagName("footer")[0].style.visibility = "hidden"
     }
 
 }
+
 
 renderMain()
 
