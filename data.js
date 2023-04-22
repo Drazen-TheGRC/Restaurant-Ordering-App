@@ -47,7 +47,7 @@ export const drinkMenu = [
         ingredients: ["black tea", "milk", "tapioca pearls", "ice"],
         price: 10,
         emoji: "🧋",
-        id: 1,
+        id: 6,
         quantityInCart: 0
     },
     {
@@ -55,7 +55,7 @@ export const drinkMenu = [
         ingredients: ["coffee", "surar", "milk"],
         price: 5,
         emoji: "☕",
-        id: 2,
+        id: 7,
         quantityInCart: 0
     },
         {
@@ -63,7 +63,7 @@ export const drinkMenu = [
         ingredients: ["grain, hops, yeast, water"],
         price: 12,
         emoji: "🍺",
-        id: 3,
+        id: 8,
         quantityInCart: 0
     },
     {
@@ -71,7 +71,7 @@ export const drinkMenu = [
         ingredients: ["vodka", "whiskey", "syrup", "soda water", "ice", "mint"],
         price: 18,
         emoji: "🍹",
-        id: 4,
+        id: 9,
         quantityInCart: 0
     },
     {
@@ -79,7 +79,7 @@ export const drinkMenu = [
         ingredients: ["flavor", "sugar", "CO2"],
         price: 8,
         emoji: "🥤",
-        id: 5,
+        id: 10,
         quantityInCart: 0
     },
 ]

@@ -16,6 +16,15 @@ document.addEventListener("click", function(e){
             
         }
     }
+    else if(e.target.dataset.add_product){
+        addQty(e.target.dataset.add_product)
+    }
+    else if(e.target.dataset.sub_product){
+        subQty(e.target.dataset.sub_product)
+    }
+    else if(e.target.dataset.remove_product){
+       removeProduct(e.target.dataset.remove_product)
+    }
 })
 
 
@@ -63,8 +72,6 @@ function getProductHtml(){
     return productHtml
 }
 
-
-
 function addToCart(productType, productId){
     
     // Getting clicked product
@@ -99,12 +106,38 @@ function addToCart(productType, productId){
     renderCart()
 }
 
+function addQty(productName){
+    let targetProduct = cart.filter(function(product){
+        return product.name === productName
+    })[0]
+    targetProduct.quantityInCart++
 
+    renderCart()
+}
 
+function subQty(productName){
+    let targetProduct = cart.filter(function(product){
+        return product.name === productName
+    })[0]
+    targetProduct.quantityInCart--
 
+    if(targetProduct.quantityInCart < 1){
+        let indexOfProduct = cart.indexOf(targetProduct)
+        cart.splice(indexOfProduct, 1)
+    }
 
+    renderCart()
+}
 
-
+function removeProduct(productName){
+    let targetProduct = cart.filter(function(product){
+        return product.name === productName
+    })[0]
+    
+    let indexOfProduct = cart.indexOf(targetProduct)
+    cart.splice(indexOfProduct, 1)
+    renderCart()
+}
 
 
 function renderMain(){
@@ -113,6 +146,7 @@ function renderMain(){
 
 function renderCart(){
     let totalPrice = 0
+
     let cartHtml = ""
     cart.forEach(function(product){
         totalPrice += product.price*product.quantityInCart
@@ -120,24 +154,24 @@ function renderCart(){
         `
         <div class="order">
             <div class="product">
-                <p>${product.name} <span class="remove">(remove)</span></p>
+                <p>${product.name} <span class="remove" data-remove_product="${product.name}" >(remove)</span></p>
             </div>
 
             <div class="price">
                 <div class="price-math-add">
                     <div class="div-qty">
                         <p>
-                            <i class="fa-solid fa-circle-plus"></i>
+                            <i class="fa-solid fa-circle-minus" data-sub_product="${product.name}" ></i>
                         </p>
                     </div>
                     <div class="div-qty">
                         <p>
-                                <span class="qty">${product.quantityInCart}</span>
+                            <span class="qty">${product.quantityInCart}</span>
                         </p>
                     </div>
                     <div class="div-qty">
                         <p>
-                            <i class="fa-solid fa-circle-minus"></i>
+                            <i class="fa-solid fa-circle-plus" data-add_product="${product.name}"></i>
                         </p>
                     </div>
                 </div>
@@ -164,6 +198,7 @@ function renderCart(){
     }
 
 }
+
 
 
 renderMain()
