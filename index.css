@@ -11,31 +11,28 @@ body {
 }
 
 header {
-    
-    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-    padding: 0px 40px;
+    padding: 20px 40px;
 
     background-image: url(https://images.unsplash.com/photo-1616645500344-209060c84970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
     background-size: cover;
     background-position: center;
     
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    color: antiquewhite;
 }
 
 section {
     display: flex;
+    flex-direction: row;
     align-items: center;
 
-    flex-direction: row;
     margin: 0px 50px;
     padding: 10px 0;
 
     border-bottom: 1px solid #999;
-
 }
 
 h1 {
@@ -65,21 +62,18 @@ span:hover{
     cursor: pointer;
 }
 
-.qty{
-
-    font-size: 16px;
+.qty,
+.qty:hover{
+    color: black;
+    font-size: 18px;
+    cursor: auto;
 }
 
-section h1 {
+section h1,
+section h3 {
     margin:  0;
     padding: 0;
 
-}
-
-section h3 {
-    margin: 0;
-    padding: 0;
-    
 }
 
 section p {
@@ -114,11 +108,13 @@ i{
 
 footer {
     visibility: hidden;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    min-height: 230px;
+
+    min-height: 180px;
     padding: 20px 50px 20px 50px;
 }
 
@@ -127,34 +123,34 @@ footer {
     padding-bottom: 30px;
 }
 
+.cart,
 .total-container {
     width: 100%;
 }
 
-.cart {
-    width: 100%;
-}
 
 .order,
 .total{
-    margin: auto;
     display: flex;
-
-
-    width: 100%;
+    margin: auto;
     
+    width: 100%;
 }
 
 
 .product,
 .price {
     display: flex;
+    justify-content: space-between;
+
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    
     width: 50%;
-    justify-content: space-between;
+
+    font-size: 18px;
 }
+
 .price-total{
     justify-content: end;
 }
@@ -182,11 +178,14 @@ footer {
     justify-content: space-between;
     
     border-top: 1px solid #999;
-    
 }
+
 .total-price{
     display: flex;
     justify-content: space-between;
+    
+    font-weight: bold;
+    font-size: 20px;
 }
 
 button {

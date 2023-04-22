@@ -72,6 +72,8 @@ function getProductHtml(){
     return productHtml
 }
 
+
+
 function addToCart(productType, productId){
     
     // Getting clicked product
@@ -100,11 +102,10 @@ function addToCart(productType, productId){
         )
     }
 
-
-
-    
     renderCart()
 }
+
+
 
 function addQty(productName){
     let targetProduct = cart.filter(function(product){
@@ -114,6 +115,8 @@ function addQty(productName){
 
     renderCart()
 }
+
+
 
 function subQty(productName){
     let targetProduct = cart.filter(function(product){
@@ -129,6 +132,8 @@ function subQty(productName){
     renderCart()
 }
 
+
+
 function removeProduct(productName){
     let targetProduct = cart.filter(function(product){
         return product.name === productName
@@ -143,6 +148,8 @@ function removeProduct(productName){
 function renderMain(){
     document.getElementById("main").innerHTML = getProductHtml()
 }
+
+
 
 function renderCart(){
     let totalPrice = 0
@@ -200,6 +207,6 @@ function renderCart(){
 }
 
 
-
+// First render
 renderMain()
 
