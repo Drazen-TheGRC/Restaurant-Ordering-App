@@ -234,8 +234,9 @@ function renderCart(){
 
 
 function togglePopUp(){
-
     document.getElementById("complete-order-div").classList.toggle("hidden")
+    document.getElementsByTagName("main")[0].classList.toggle("no-click")
+    document.getElementsByTagName("footer")[0].classList.toggle("no-click")
 
 }
 
