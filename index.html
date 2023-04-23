@@ -17,12 +17,12 @@
             </header>
 
             <div id="complete-order-div" class="hidden">
-                <form class="complete-order-form" action="">
+                <form id="pay-form" class="complete-order-form" action="">
                     <i class="close-pop-up fa-solid fa-circle-xmark" data-close_pop_up="close-pop-up"></i>
-                    <input name="fullName" type="text" placeholder="Enter your full name" required>
-                    <input name="cardNumber" type="text" placeholder="Enter card number" required>
-                    <input name="cvv" type="text" placeholder="Enter CVV" required>
-                    <button type="submit">Pay</button>
+                    <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required>
+                    <input id="cardNumber" name="cardNumber" type="text" placeholder="Enter card number" required>
+                    <input id="cvv" name="cvv" type="text" placeholder="Enter CVV" required>
+                    <button id="submit" type="submit">Pay</button>
                 </form>
             </div>
 

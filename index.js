@@ -2,6 +2,7 @@ import { foodMenu } from "./data.js"
 import { drinkMenu } from "./data.js"
 
 let isFood = true
+let isPayMode = false
 let menu
 let cart = []
 
@@ -33,7 +34,12 @@ document.addEventListener("click", function(e){
     else if(e.target.dataset.close_pop_up){
         togglePopUp()
     }
-    
+
+})
+
+document.getElementById("pay-form").addEventListener("submit", function(e){
+    e.preventDefault()
+    pay()
 })
 
 
@@ -244,7 +250,7 @@ function renderCart(){
 }
 
 
-let isPayMode = false
+
 function togglePopUp(){
     
     document.getElementById("complete-order-div").classList.toggle("hidden")
@@ -270,6 +276,38 @@ function togglePopUp(){
     }
 }
 
+
+
+
+
+
+
+
+
+function pay(){
+
+    const fullName = document.getElementById("fullName").value
+    //const cardNumber = document.getElementById("cardNumber").value
+    //const cvv = document.getElementById("cvv").value
+
+    let payHtml = ""
+    payHtml = 
+        `
+        <div class="paid">
+            <h2>Thanks, ${fullName}!</h2>
+            <h2>Your order is on the way!</h2>
+            
+        </div>
+        `
+    document.getElementsByTagName("footer")[0].innerHTML = payHtml
+    document.getElementById("complete-order-div").classList.toggle("hidden")
+
+
+
+    setTimeout(function(){
+        window.location.reload();
+    }, "5000")
+}
 
 
 

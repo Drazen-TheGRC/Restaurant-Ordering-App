@@ -295,3 +295,17 @@ button.no-click{
     color: white;
     background-color: #999;
 }
+
+.paid{
+    margin-bottom: 50px;
+    padding:20px 50px;
+    color: white;
+    background-color: #16DB99;
+    text-align: center;
+    border-radius: 10px;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+
+}
