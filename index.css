@@ -107,7 +107,9 @@ i{
 }
 
 footer {
-    visibility: hidden;
+    /* Here we can set up visibility status for the app footer */
+    /* It needs to be adjusted in the renderCart() function too*/
+    visibility: visible;
 
     display: flex;
     flex-direction: column;
@@ -238,7 +240,6 @@ button {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    
 }
 
 .complete-order-form {
@@ -285,6 +286,12 @@ input {
     font-size: 25px;
 }
 
-.no-click {
+.no-click{
     pointer-events: none;
+    color: #999
+}
+
+button.no-click{
+    color: white;
+    background-color: #999;
 }

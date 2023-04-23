@@ -5,12 +5,12 @@ let isFood = true
 let menu
 let cart = []
 
-
+renderCart()
 
 document.addEventListener("click", function(e){
 
-    if(e.target.id){
-        addToCart(e.target.dataset.product_type, e.target.id)
+    if(e.target.dataset.product_id){
+        addToCart(e.target.dataset.product_id)
     }
     else if(e.target.dataset.add_product){
         addQty(e.target.dataset.add_product)
@@ -52,13 +52,13 @@ function getProductHtml(){
     }
 
     productHtml =
-    `
-    <div class="menuBtns">
-        <button class="foodBtn" data-food_menu="food" >Food Menu</button>
-        <button class="drinkBtn" data-drink_menu="drink" >Drink Menu</button>
-    </div>
-    
-    `
+        `
+        <div class="menuBtns">
+            <button class="foodBtn clickable" data-food_menu="food" >Food Menu</button>
+            <button class="drinkBtn clickable" data-drink_menu="drink" >Drink Menu</button>
+        </div>
+        
+        `
 
     menu.forEach(function(product){
 
@@ -81,7 +81,7 @@ function getProductHtml(){
                 <h3>$${product.price}</h3>
             </div>
 
-            <i id="${product.id}" class="add fa-solid fa-circle-plus" data-product_type="${productType}" ></i>
+            <i class="add fa-solid fa-circle-plus clickable" data-product_id="${product.id}" ></i>
 
         </section>
         `
@@ -91,7 +91,7 @@ function getProductHtml(){
 }
 
 
-function addToCart(productType, productId){
+function addToCart(productId){
     
     // Getting clicked product
     
@@ -186,14 +186,14 @@ function renderCart(){
         `
         <div class="order">
             <div class="product">
-                <p>${product.name} ${product.emoji} <span class="remove" data-remove_product="${product.name}" >(remove)</span></p>
+                <p>${product.name} ${product.emoji} <span class="remove clickable" data-remove_product="${product.name}" >(remove)</span></p>
             </div>
 
             <div class="price">
                 <div class="price-math-add">
                     <div class="div-qty">
                         <p>
-                            <i class="fa-solid fa-circle-minus" data-sub_product="${product.name}" ></i>
+                            <i class="fa-solid fa-circle-minus clickable" data-sub_product="${product.name}" ></i>
                         </p>
                     </div>
                     <div class="div-qty">
@@ -203,7 +203,7 @@ function renderCart(){
                     </div>
                     <div class="div-qty">
                         <p>
-                            <i class="fa-solid fa-circle-plus" data-add_product="${product.name}"></i>
+                            <i class="fa-solid fa-circle-plus clickable" data-add_product="${product.name}"></i>
                         </p>
                     </div>
                 </div>
@@ -223,10 +223,18 @@ function renderCart(){
 
     if(cart.length > 0){
         document.getElementsByTagName("footer")[0].style.visibility = "visible"
+
         document.getElementById("orderHeading").textContent = "Your order"
         document.getElementById("total-price").textContent = "$" + parseFloat(totalPrice).toFixed(2)
+        document.getElementsByClassName("complete_order_btn")[0].classList.remove("no-click")
     }else{
-        document.getElementsByTagName("footer")[0].style.visibility = "hidden"
+        // Here I can remove hidden at the end to make footer visable all the time,
+        // it needs to be done also in css footer
+        document.getElementsByTagName("footer")[0].style.visibility = "" // visible / hidden
+
+        document.getElementById("orderHeading").textContent = "You haven't put anything in your cart yet"
+        document.getElementById("total-price").textContent = "$0.00"
+        document.getElementsByClassName("complete_order_btn")[0].classList.add("no-click")
     }
 
 }
@@ -234,9 +242,13 @@ function renderCart(){
 
 
 function togglePopUp(){
+    
     document.getElementById("complete-order-div").classList.toggle("hidden")
-    document.getElementsByTagName("main")[0].classList.toggle("no-click")
-    document.getElementsByTagName("footer")[0].classList.toggle("no-click")
+
+    const elements = document.getElementsByClassName("clickable")
+    for(let element of elements){
+        element.classList.toggle("no-click")
+    }
 
 }
 
