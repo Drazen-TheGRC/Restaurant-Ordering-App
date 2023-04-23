@@ -16,8 +16,9 @@
                 <h3>We boost your choice of food and drink</h3>
             </header>
 
-            <div id="complete-order-div" class="" >
+            <div id="complete-order-div" class="hidden">
                 <form class="complete-order-form" action="">
+                    <i class="close-pop-up fa-solid fa-circle-xmark" data-close_pop_up="close-pop-up"></i>
                     <input name="fullName" type="text" placeholder="Enter your full name" required>
                     <input name="cardNumber" type="text" placeholder="Enter card number" required>
                     <input name="cvv" type="text" placeholder="Enter CVV" required>
@@ -47,7 +48,7 @@
                     </div>
 
 
-                    <button id="complete-btn" data-compleate_btn="compleate_btn">Compleate order</button>
+                    <button data-complete_order_btn="complete-order">Complete order</button>
                 
                 
                 </div>

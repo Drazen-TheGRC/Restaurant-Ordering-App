@@ -6,6 +6,7 @@ let menu
 let cart = []
 
 
+
 document.addEventListener("click", function(e){
 
     if(e.target.id){
@@ -18,13 +19,19 @@ document.addEventListener("click", function(e){
         subQty(e.target.dataset.sub_product)
     }
     else if(e.target.dataset.remove_product){
-       removeProduct(e.target.dataset.remove_product)
+        removeProduct(e.target.dataset.remove_product)
     }
     else if(e.target.dataset.food_menu){
         switchMenu(e.target.dataset.food_menu)
     }
     else if(e.target.dataset.drink_menu){
         switchMenu(e.target.dataset.drink_menu)
+    }
+    else if(e.target.dataset.complete_order_btn){
+        togglePopUp()
+    }
+    else if(e.target.dataset.close_pop_up){
+        togglePopUp()
     }
     
 })
@@ -84,17 +91,6 @@ function getProductHtml(){
 }
 
 
-function switchMenu(menu){
-    if(menu != "food"){
-        isFood = false
-        renderMain()
-    }else{
-        isFood = true
-        renderMain()
-    }
-}
-
-
 function addToCart(productType, productId){
     
     // Getting clicked product
@@ -109,9 +105,6 @@ function addToCart(productType, productId){
             return product.id === parseInt(productId)
         })[0]
     }
-
-
-
 
     // Checking if clicked product already exists in the cart
     let existsInChart = cart.filter(function(product){
@@ -146,8 +139,6 @@ function addQty(productName){
 
     renderCart()
 }
-
-
 function subQty(productName){
     let targetProduct = cart.filter(function(product){
         return product.name === productName
@@ -161,8 +152,6 @@ function subQty(productName){
 
     renderCart()
 }
-
-
 function removeProduct(productName){
     let targetProduct = cart.filter(function(product){
         return product.name === productName
@@ -174,11 +163,19 @@ function removeProduct(productName){
 }
 
 
+
+function switchMenu(menu){
+    if(menu != "food"){
+        isFood = false
+        renderMain()
+    }else{
+        isFood = true
+        renderMain()
+    }
+}
 function renderMain(){
     document.getElementById("main").innerHTML = getProductHtml()
 }
-
-
 function renderCart(){
     let totalPrice = 0
 
@@ -236,14 +233,18 @@ function renderCart(){
 
 
 
-function completeOrder(){
-    console.log("Message from completeOrder()")
+function togglePopUp(){
+
     document.getElementById("complete-order-div").classList.toggle("hidden")
+
 }
+
+
 
 
 // First render
 renderMain()
+
 
 
 
