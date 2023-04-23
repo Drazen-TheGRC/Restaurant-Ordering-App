@@ -5,7 +5,7 @@ let isFood = true
 let menu
 let cart = []
 
-renderCart()
+
 
 document.addEventListener("click", function(e){
 
@@ -42,20 +42,17 @@ function getProductHtml(){
 
     let productHtml = ""
     
-    let productType
     if(isFood){
         menu = foodMenu
-        productType = "food"
     }else{
         menu = drinkMenu
-        productType = "drink"
     }
 
     productHtml =
         `
         <div class="menuBtns">
-            <button class="foodBtn clickable" data-food_menu="food" >Food Menu</button>
-            <button class="drinkBtn clickable" data-drink_menu="drink" >Drink Menu</button>
+            <button class="foodBtn " data-food_menu="food" >Food Menu</button>
+            <button class="drinkBtn " data-drink_menu="drink" >Drink Menu</button>
         </div>
         
         `
@@ -167,14 +164,21 @@ function removeProduct(productName){
 function switchMenu(menu){
     if(menu != "food"){
         isFood = false
+        
         renderMain()
     }else{
+        
         isFood = true
         renderMain()
     }
 }
 function renderMain(){
     document.getElementById("main").innerHTML = getProductHtml()
+    if(isFood){
+        document.getElementsByClassName("foodBtn")[0].classList.add("no-click")
+    }else{
+        document.getElementsByClassName("drinkBtn")[0].classList.add("no-click")
+    }
 }
 function renderCart(){
     let totalPrice = 0
@@ -240,7 +244,7 @@ function renderCart(){
 }
 
 
-
+let isPayMode = false
 function togglePopUp(){
     
     document.getElementById("complete-order-div").classList.toggle("hidden")
@@ -250,14 +254,29 @@ function togglePopUp(){
         element.classList.toggle("no-click")
     }
 
+
+    isPayMode = !isPayMode
+    if(isPayMode){
+        document.getElementsByClassName("foodBtn")[0].classList.add("no-click")
+        document.getElementsByClassName("drinkBtn")[0].classList.add("no-click")
+    }else{
+        if(isFood){
+            document.getElementsByClassName("foodBtn")[0].classList.add("no-click")
+            document.getElementsByClassName("drinkBtn")[0].classList.remove("no-click")
+        }else{
+            document.getElementsByClassName("foodBtn")[0].classList.remove("no-click")
+            document.getElementsByClassName("drinkBtn")[0].classList.add("no-click")
+        }
+    }
 }
 
 
 
 
-// First render
+// First main render
 renderMain()
-
+// First cart render
+renderCart()
 
 
 
